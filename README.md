@@ -1,6 +1,7 @@
 # Sandbox
 
 - Set theme to light on home page.
+- git commit -m "yolo!" --no-verify
 
 # Kent C. Dodds' site (rewritten with Remix)
 
