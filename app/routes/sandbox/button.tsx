@@ -1,15 +1,15 @@
 import React from 'react'
-import {Button, LinkButton} from '~/components/button'
+import {Button, ButtonLink, LinkButton} from '~/components/button'
 
 export default function RouteComponent() {
   return (
-    <div className="flex flex-col gap-4 p-8">
-      <div className="flex items-center justify-start gap-4">
+    <div className="mx-auto flex max-w-2xl flex-col gap-4 border p-8">
+      <div className="flex items-center justify-between">
         <Button size="small">My Button</Button>
         <Button size="medium">My Button</Button>
         <Button size="large">My Button</Button>
       </div>
-      <div className="flex items-center justify-start gap-4">
+      <div className="flex items-center justify-between">
         <Button variant="secondary" size="small">
           My Button
         </Button>
@@ -20,7 +20,7 @@ export default function RouteComponent() {
           My Button
         </Button>
       </div>
-      <div className="flex items-center justify-start gap-4">
+      <div className="flex items-center justify-between">
         <Button variant="danger" size="small">
           My Button
         </Button>
@@ -36,8 +36,21 @@ export default function RouteComponent() {
           <LinkButton>Reset</LinkButton>
           <LinkButton underlined>Reset</LinkButton>
         </div>
-        <p className="text-sm text-gray-500">
-          Link Button seems to be used only login and recorder
+        <p className="mt-1 text-sm text-gray-500">
+          Link Button seems to be used only login and recorder. underlined
+          refers to classes in App.css.
+        </p>
+      </div>
+      <div>
+        <div className="flex items-center justify-start gap-4">
+          <ButtonLink variant="primary" to="http://tailwindcss.com">
+            Button Link
+          </ButtonLink>
+          <ButtonLink variant="secondary">Button Link</ButtonLink>
+          <ButtonLink variant="danger">Button Link</ButtonLink>
+        </div>
+        <p className="mt-1 text-sm text-gray-500">
+          Size seems to be ignored. Uses AnchorOrLink in misc.tsx
         </p>
       </div>
     </div>
