@@ -31,8 +31,14 @@ export default function RouteComponent() {
           My Button
         </Button>
       </div>
-      <div className="flex items-center justify-start gap-4">
-        <LinkButton>Link Button</LinkButton>
+      <div>
+        <div className="flex items-center justify-start gap-4">
+          <LinkButton>Reset</LinkButton>
+          <LinkButton underlined>Reset</LinkButton>
+        </div>
+        <p className="text-sm text-gray-500">
+          Link Button seems to be used only login and recorder
+        </p>
       </div>
     </div>
   )
