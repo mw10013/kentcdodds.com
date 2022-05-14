@@ -326,6 +326,46 @@ function App() {
   const [team] = useTeam()
   const [theme] = useTheme()
 
+  if (matches.some(i => i.pathname.startsWith('/sandbox'))) {
+    return (
+      <html
+        lang="en"
+        className={clsx(theme, `set-color-team-current-${team.toLowerCase()}`)}
+      >
+        <head>
+          <meta charSet="utf-8" />
+          <Meta />
+
+          <link
+            rel="canonical"
+            href={removeTrailingSlash(
+              `${data.requestInfo.origin}${data.requestInfo.path}`,
+            )}
+          />
+
+          <Links />
+          <noscript>
+            <link rel="stylesheet" href={noScriptStyles} />
+          </noscript>
+          <NonFlashOfWrongThemeEls
+            ssrTheme={Boolean(data.requestInfo.session.theme)}
+          />
+        </head>
+        <body>
+          <Outlet />
+          {shouldRestoreScroll ? <ScrollRestoration /> : null}
+          <Scripts />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.ENV = ${JSON.stringify(data.ENV)};`,
+            }}
+          />
+          {ENV.NODE_ENV === 'development' ? <LiveReload /> : null}
+        </body>
+      </html>
+    )
+  }
+
   return (
     <html
       lang="en"

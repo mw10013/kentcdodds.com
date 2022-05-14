@@ -1,3 +1,7 @@
+# Sandbox
+
+- Set theme to light on home page.
+
 # Kent C. Dodds' site (rewritten with Remix)
 
 [![Build Status][build-badge]][build]
